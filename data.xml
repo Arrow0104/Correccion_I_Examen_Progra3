@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<data>
+    <users>
+        <user>
+            <id>U001</id>
+            <name>Bill Gates</name>
+            <email>bgates@example.com</email>
+        </user>
+        <user>
+            <id>U002</id>
+            <name>Mark Zuckerberg</name>
+            <email>mzuckerberg@example.com</email>
+        </user>
+        <user>
+            <id>U003</id>
+            <name>Sam Altman</name>
+            <email>saltman@example.com</email>
+        </user>
+        <user>
+            <id>U004</id>
+            <name>Satya Nadella</name>
+            <email>snadella@example.com</email>
+        </user>
+    </users>
+    <projects>
+        <project id="PROJ-001">
+            <description>Ayuda Humanitaria</description>
+            <manager>
+                <id>U002</id>
+                <name>Mark Zuckerberg</name>
+                <email>mzuckerberg@example.com</email>
+            </manager>
+            <tasks>
+                <task id="T-001">
+                    <description>Dar Comida</description>
+                    <dueDate>2025-10-04</dueDate>
+                    <priority>MEDIA</priority>
+                    <status>EN_PROGRESO</status>
+                    <responsible>
+                        <id>U003</id>
+                        <name>Sam Altman</name>
+                        <email>saltman@example.com</email>
+                    </responsible>
+                </task>
+                <task id="T-002">
+                    <description>Dar agua</description>
+                    <dueDate>2025-10-12</dueDate>
+                    <priority>ALTA</priority>
+                    <status>EN_PROGRESO</status>
+                    <responsible>
+                        <id>U003</id>
+                        <name>Sam Altman</name>
+                        <email>saltman@example.com</email>
+                    </responsible>
+                </task>
+            </tasks>
+        </project>
+        <project id="PROJ-002">
+            <description>Ayuda Social</description>
+            <manager>
+                <id>U004</id>
+                <name>Satya Nadella</name>
+                <email>snadella@example.com</email>
+            </manager>
+            <tasks>
+                <task id="T-001">
+                    <description>Socializar</description>
+                    <dueDate>2025-10-04</dueDate>
+                    <priority>MEDIA</priority>
+                    <status>EN_PROGRESO</status>
+                    <responsible>
+                        <id>U001</id>
+                        <name>Bill Gates</name>
+                        <email>bgates@example.com</email>
+                    </responsible>
+                </task>
+            </tasks>
+        </project>
+        <project id="PROJ-003">
+            <description>Ayuda Familiar</description>
+            <manager>
+                <id>U002</id>
+                <name>Mark Zuckerberg</name>
+                <email>mzuckerberg@example.com</email>
+            </manager>
+            <tasks>
+                <task id="T-001">
+                    <description>Ayudar al papa</description>
+                    <dueDate>2025-06-28</dueDate>
+                    <priority>ALTA</priority>
+                    <status>ABIERTA</status>
+                    <responsible>
+                        <id>U004</id>
+                        <name>Satya Nadella</name>
+                        <email>snadella@example.com</email>
+                    </responsible>
+                </task>
+            </tasks>
+        </project>
+    </projects>
+    <tasks>
+        <task id="T-001">
+            <description>Ayudar al papa</description>
+            <dueDate>2025-06-28</dueDate>
+            <priority>ALTA</priority>
+            <status>ABIERTA</status>
+            <responsible>
+                <id>U004</id>
+                <name>Satya Nadella</name>
+                <email>snadella@example.com</email>
+            </responsible>
+        </task>
+        <task id="T-002">
+            <description>Dar agua</description>
+            <dueDate>2025-10-12</dueDate>
+            <priority>ALTA</priority>
+            <status>EN_PROGRESO</status>
+            <responsible>
+                <id>U003</id>
+                <name>Sam Altman</name>
+                <email>saltman@example.com</email>
+            </responsible>
+        </task>
+        <task id="T-001">
+            <description>Socializar</description>
+            <dueDate>2025-10-04</dueDate>
+            <priority>MEDIA</priority>
+            <status>EN_PROGRESO</status>
+            <responsible>
+                <id>U001</id>
+                <name>Bill Gates</name>
+                <email>bgates@example.com</email>
+            </responsible>
+        </task>
+        <task id="T-001">
+            <description>Ayudar al papa</description>
+            <dueDate>2025-06-28</dueDate>
+            <priority>ALTA</priority>
+            <status>ABIERTA</status>
+            <responsible>
+                <id>U004</id>
+                <name>Satya Nadella</name>
+                <email>snadella@example.com</email>
+            </responsible>
+        </task>
+    </tasks>
+</data>
