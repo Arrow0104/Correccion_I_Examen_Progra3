@@ -17,7 +17,7 @@ public class  Main {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             try {
-                // Para mejorar la apariencia y que se vea mas bonito
+                // Para mejorar la apariencia y que se vea más bonito
                 UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 
                 // Crear modelos de tablas
@@ -28,11 +28,11 @@ public class  Main {
                 ProjectService.getInstance().addObserver(projectsTableModel);
                 TaskService.getInstance().addObserver(tasksTableModel);
 
-                // Poblar modelos con datos existentes
+                // Poblar modelos
                 projectsTableModel.setRows(ProjectService.getInstance().leerTodos());
                 tasksTableModel.setRows(TaskService.getInstance().leerTodos());
 
-                // Crear la vista principal
+                // Crear el MainView
                 MainView mainView = new MainView(
                         new ProjectsController(
                                 new JTable(projectsTableModel),
@@ -48,13 +48,13 @@ public class  Main {
                         tasksTableModel
                 );
 
-                // Inicializar el JDateChooser antes de hacer initialize()
+                // Inicializar el JDateChooser
                 mainView.initDatePicker();
 
                 // Inicializar la vista
                 mainView.initialize();
 
-                // Mostrar la ventana
+                // Mostrar el MainView
                 mainView.setContentPane(mainView.MainPanel);
                 mainView.pack();
                 mainView.setLocationRelativeTo(null);

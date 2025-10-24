@@ -8,7 +8,7 @@ import presentation_layer.Controllers.ProjectsController;
 import presentation_layer.Controllers.TasksController;
 import presentation_layer.Models.ProjectsTableModel;
 import presentation_layer.Models.TasksTableModel;
-import service_layer.UserService; // Asegúrate de incluir esta línea
+import service_layer.UserService;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -18,34 +18,44 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class MainView extends JFrame {
+    //Panels
     public JPanel MainPanel;
     private JPanel ProjectsPanel;
     private JPanel CreatesProjectsPanel;
-    private JLabel PDescripcionLabel;
-    private JLabel EncargadoLabel;
-    private JButton crearProyectosButton;
-    private JComboBox<User> EncargadoComboBox;
-    private JTextField PDescripcionField;
     private JPanel TableProjectsPanel;
-    private JTable ProjectsTable;
+    private JPanel DatePickerPanel;
     private JPanel TasksPanel;
     private JPanel CreatesTasksPanel;
+    private JPanel TableTasksPanel;
+
+    //Labels
+    private JLabel PDescripcionLabel;
+    private JLabel EncargadoLabel;
     private JLabel TDescripcionLabel;
     private JLabel VenceLabel;
     private JLabel PrioridadLabel;
     private JLabel EstadoLabel;
     private JLabel ResponsableLabel;
-    private JButton crearTareasButton;
+
+    //Textfields
     private JTextField TDescriptionField;
-    private JPanel DatePickerPanel;
-    private JComboBox<Task.Priority> PrioridadComboBox;
+    private JTextField PDescripcionField;
+
+    //Buttons
+    private JButton crearProyectosButton;
+    private JComboBox<User> EncargadoComboBox;
+    private JButton crearTareasButton;
+
+   //Combo boxes
+   private JComboBox<Task.Priority> PrioridadComboBox;
     private JComboBox<Task.Status> EstadoComboBox;
     private JComboBox<User> ResponsableComboBox;
-    private JPanel TableTasksPanel;
+
+    //Tables and ScrollPanes
+    private JTable ProjectsTable;
     private JTable TasksTable;
     private JScrollPane TasksScroll;
     private JScrollPane ProjectsScroll;
-
     private JDateChooser dateChooser;
 
     private Project selectedProject;
@@ -95,26 +105,70 @@ public class MainView extends JFrame {
         DatePickerPanel.repaint();
     }
 
-
     private void populateComboBoxes() {
         try {
             List<User> users = UserService.getInstance().getUsers();
+
+            // EncargadoComboBox
             EncargadoComboBox.removeAllItems();
-            ResponsableComboBox.removeAllItems();
+            EncargadoComboBox.addItem(null);
             for (User user : users) {
                 EncargadoComboBox.addItem(user);
+            }
+            EncargadoComboBox.setRenderer(new DefaultListCellRenderer() {
+                @Override
+                public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                    super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                    setText(value == null ? "Seleccione" : ((User) value).getName());
+                    return this;
+                }
+            });
+
+            // ResponsableComboBox
+            ResponsableComboBox.removeAllItems();
+            ResponsableComboBox.addItem(null);
+            for (User user : users) {
                 ResponsableComboBox.addItem(user);
             }
+            ResponsableComboBox.setRenderer(new DefaultListCellRenderer() {
+                @Override
+                public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                    super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                    setText(value == null ? "Seleccione" : ((User) value).getName());
+                    return this;
+                }
+            });
 
+            // PrioridadComboBox
             PrioridadComboBox.removeAllItems();
+            PrioridadComboBox.addItem(null);
             for (Task.Priority priority : Task.Priority.values()) {
                 PrioridadComboBox.addItem(priority);
             }
+            PrioridadComboBox.setRenderer(new DefaultListCellRenderer() {
+                @Override
+                public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                    super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                    setText(value == null ? "Seleccione" : ((Task.Priority) value).name());
+                    return this;
+                }
+            });
 
+            // EstadoComboBox
             EstadoComboBox.removeAllItems();
+            EstadoComboBox.addItem(null);
             for (Task.Status status : Task.Status.values()) {
                 EstadoComboBox.addItem(status);
             }
+            EstadoComboBox.setRenderer(new DefaultListCellRenderer() {
+                @Override
+                public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                    super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                    setText(value == null ? "Seleccione" : value.toString());
+                    return this;
+                }
+            });
+
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this,
                     "Error al poblar los ComboBoxes: " + ex.getMessage(),
@@ -190,7 +244,6 @@ public class MainView extends JFrame {
         taskView.setTask(task);
         taskView.setVisible(true);
     }
-
 
     private void createProject() {
         String descripcion = PDescripcionField.getText().trim();
@@ -281,6 +334,7 @@ public class MainView extends JFrame {
         return null;
     }
 }
+
 
 
 

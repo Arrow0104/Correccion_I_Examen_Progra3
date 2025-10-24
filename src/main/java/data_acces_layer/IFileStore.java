@@ -18,7 +18,7 @@ public interface IFileStore<T> {
     void writeAll(List<T> data);
 
     /**
-     * Se asegura de que el archivo donde se guardara la informacion exista.
+     * Se asegura de que el archivo donde se guardara la información exista.
      */
     default void ensureFile(File xmlFile) {
         try {

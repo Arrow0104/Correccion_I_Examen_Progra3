@@ -95,6 +95,38 @@
                         <email>snadella@example.com</email>
                     </responsible>
                 </task>
+                <task id="T-002">
+                    <description>Ayudar a la mama</description>
+                    <dueDate>2025-10-04</dueDate>
+                    <priority>ALTA</priority>
+                    <status>EN_PROGRESO</status>
+                    <responsible>
+                        <id>U003</id>
+                        <name>Sam Altman</name>
+                        <email>saltman@example.com</email>
+                    </responsible>
+                </task>
+            </tasks>
+        </project>
+        <project id="PROJ-004">
+            <description>Ayuda Educativa</description>
+            <manager>
+                <id>U002</id>
+                <name>Mark Zuckerberg</name>
+                <email>mzuckerberg@example.com</email>
+            </manager>
+            <tasks>
+                <task id="T-001">
+                    <description>Ayuda en la escuela</description>
+                    <dueDate>2025-10-11</dueDate>
+                    <priority>ALTA</priority>
+                    <status>ABIERTA</status>
+                    <responsible>
+                        <id>U004</id>
+                        <name>Satya Nadella</name>
+                        <email>snadella@example.com</email>
+                    </responsible>
+                </task>
             </tasks>
         </project>
     </projects>
@@ -135,6 +167,28 @@
         <task id="T-001">
             <description>Ayudar al papa</description>
             <dueDate>2025-06-28</dueDate>
+            <priority>ALTA</priority>
+            <status>ABIERTA</status>
+            <responsible>
+                <id>U004</id>
+                <name>Satya Nadella</name>
+                <email>snadella@example.com</email>
+            </responsible>
+        </task>
+        <task id="T-002">
+            <description>Ayudar a la mama</description>
+            <dueDate>2025-10-04</dueDate>
+            <priority>ALTA</priority>
+            <status>EN_PROGRESO</status>
+            <responsible>
+                <id>U003</id>
+                <name>Sam Altman</name>
+                <email>saltman@example.com</email>
+            </responsible>
+        </task>
+        <task id="T-001">
+            <description>Ayuda en la escuela</description>
+            <dueDate>2025-10-11</dueDate>
             <priority>ALTA</priority>
             <status>ABIERTA</status>
             <responsible>

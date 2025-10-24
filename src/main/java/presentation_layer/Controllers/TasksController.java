@@ -62,7 +62,6 @@ public class TasksController {
             throw new IllegalArgumentException("Debe seleccionar un proyecto para crear la tarea");
         }
 
-        // El ID se basa en la cantidad de tareas del proyecto, no global
         int newId = project.getTareas().size() + 1;
         String formattedId = String.format("T-%03d", newId);
         Task task = new Task(formattedId, descripcion, fechaFinalizacion, prioridad, estado, responsable);

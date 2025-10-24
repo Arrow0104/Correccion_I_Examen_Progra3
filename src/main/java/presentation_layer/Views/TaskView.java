@@ -7,14 +7,22 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TaskView extends JDialog {
+    //Panels
     private JPanel EditTaskPanel;
+    private JPanel ButtonsPanel;
+
+    //Labels
     private JLabel PrioridadLabel;
     private JLabel EstadoLabel;
-    private JPanel ButtonsPanel;
+
+    //Buttons
     private JButton okButton;
     private JButton cancelButton;
+
+    //Combo boxes
     private JComboBox<Task.Priority> EditPrioridadCombobox;
     private JComboBox<Task.Status> EditEstadoCombobox;
+
 
     private Task currentTask;
     private final MainView parentView;
@@ -31,11 +39,9 @@ public class TaskView extends JDialog {
         setTitle("Editar Tarea");
         setSize(400, 250);
 
-        // Configurar comboboxes
         EditPrioridadCombobox.setModel(new DefaultComboBoxModel<>(Task.Priority.values()));
         EditEstadoCombobox.setModel(new DefaultComboBoxModel<>(Task.Status.values()));
 
-        // Configurar listeners usando method references con lambdas
         okButton.addActionListener(e -> onSaveButtonClicked());
         cancelButton.addActionListener(e -> setVisible(false));
 
@@ -44,10 +50,6 @@ public class TaskView extends JDialog {
         EditTaskPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     }
 
-    /**
-     * Configura la tarea a editar y actualiza la UI
-     * @param task La tarea a editar
-     */
     public void setTask(Task task) {
         this.currentTask = task;
         if (task != null) {
@@ -56,9 +58,6 @@ public class TaskView extends JDialog {
         }
     }
 
-    /**
-     * Maneja el evento del botón guardar
-     */
     private void onSaveButtonClicked() {
         try {
             if (currentTask != null) {
